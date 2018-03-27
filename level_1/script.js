@@ -30,5 +30,3 @@ shopGoods = [typeTovar_1, typeTovar_2, typeTovar_3];
 
 // 4
 alert(+(budget) / 30);
-
-
