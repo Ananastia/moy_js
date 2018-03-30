@@ -85,14 +85,15 @@ workTime(19);
 
 
 function dayBudget(){
-   alert(mainList.budget / 30);
+   alert("Ваш бюджет на одни день: " + mainList.budget / 30);
 }
 
+//dayBudget();
 
 function systemDiscount(price) {
 	if(mainList.discount == true){
       price = price / 100 * 80;
-      alert(price);
+      alert("Цена со скидкой: " + price);
 	}
 	else{
 		alert("Сорян");
@@ -101,16 +102,16 @@ function systemDiscount(price) {
 }
 
 //systemDiscount(90);
-
+ 
 function employmentEmploers(){
-   
+  let num=0;
    for(let i = 0; i < 4; i++){
    	let a = prompt("Введите имя сотрудника");
-     mainList.employer.number = ++i;
+     mainList.employer.number = ++num;
      mainList.employer.name = a;
    
      console.log(mainList.employer);
-     --i;
+     ;
    }
 }
 
