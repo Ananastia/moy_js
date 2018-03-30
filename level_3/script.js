@@ -104,14 +104,11 @@ function systemDiscount(price) {
 //systemDiscount(90);
  
 function employmentEmploers(){
-  let num=0;
-   for(let i = 0; i < 4; i++){
+
+   for(let i = 1; i < 5; i++){
    	let a = prompt("Введите имя сотрудника");
-     mainList.employer.number = ++num;
-     mainList.employer.name = a;
-   
-     console.log(mainList.employer);
-     ;
+     mainList.employer[i] = a;
+ 
    }
 }
 
