@@ -37,7 +37,7 @@ let mainList = {
      	mainList.shopGoods[i] = a;
      } else{
          alert("Неправильно введен товары");
-         mainList.shopGoods[i] = prompt("Введите правильно название товара!","");
+         i--;
      }
  
  }
