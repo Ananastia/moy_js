@@ -119,11 +119,14 @@ setClock('timer', deadline);
 
        let form = document.getElementsByClassName('main-form')[0],
        input = form.getElementsByTagName('input'),
+	   contact = document.getElementById('form'),
+	   inputContact = contact.getElementsByTagName('input'),
        statusMessage = document.createElement('div');
 
+	 
        statusMessage.classList.add('status');
 
-       fotm.addEventListener('submit', function(event){
+       form.addEventListener('submit', function(event){
        
          event.preventDefault();
          form.appendChild(statusMessage);
@@ -158,6 +161,40 @@ setClock('timer', deadline);
      }
        });
 
+     
+	      contact.addEventListener('submit', function(event){
+       
+         event.preventDefault();
+         contact.appendChild(statusMessage);
 
+         //AJAX
+         let request = new XMLHttpRequest();
+
+         request.open("POST", 'server.php');
+
+         request.setRequestHeader("Content-Type", "application/x-www-urlencoded");
+
+         let formDat = new FormData(contact);
+         request.send(formDat);
+
+         request.onreadystatechange = function(){
+
+          if(request.readyState < 4){
+            statusMessage.innerHTML = message.loading;
+          }
+          else if(request.readyState === 4){
+
+            if(request.status === 200 && request.status < 300){
+              statusMessage.innerHTML = message.success;
+            }
+            else {
+              statusMessage.innerHTML = message.failure;
+            }
+          }
+         }
+     for(let i = 0; i < inputContact.length; i++){
+      inputContact[i].value = '';
+     }
+       });
 
 });
